@@ -8,3 +8,6 @@ docker rmi -f $(docker images -aq)
 Check Docker Logs
 
 Docker logs {Container_Name}
+
+
+docker-compose -f docker-compose.yml config. or docker-compose config
