@@ -22,3 +22,7 @@ docker start start a container (requires name or ID)
 docker ps List containers
 -q list only container IDs
 -l list only last created container
+
+
+
+^P^Q does work, BUT only when -t and -i is used to launch the container:
