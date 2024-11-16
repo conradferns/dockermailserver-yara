@@ -11,3 +11,14 @@ Docker logs {Container_Name}
 
 
 docker-compose -f docker-compose.yml config. or docker-compose config
+
+
+docker start -a -i `docker ps -q -l`
+Explanation:
+
+docker start start a container (requires name or ID)
+-a attach to container
+-i interactive mode
+docker ps List containers
+-q list only container IDs
+-l list only last created container
