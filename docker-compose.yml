@@ -1,0 +1,41 @@
+version: '3.3'
+services:
+  mailserver_vms:
+    image: mailserver/docker-mailserver:latest
+    container_name: mailserver
+    hostname: mail
+    domainname: example.local
+    ports:
+      - "25:25"       # SMTP
+      - "143:143"     # IMAP
+      - "587:587"     # SMTP (submission)
+    volumes:
+      - maildata:/var/mail
+      - mailstate:/var/mail-state
+      - maillogs:/var/log/mail
+      - ./config/:/tmp/docker-mailserver/
+      - /etc/localtime:/etc/localtime:ro
+        # Custom configuration
+    environment:
+      - ENABLE_RSPAMD=1
+      - ENABLE_CLAMAV=1
+      - ENABLE_FAIL2BAN=1
+        # Disable SSL for simplicity (useful for POC)
+    cap_add:
+      - NET_ADMIN
+    restart: always
+
+  thunderbird:
+    image: jlesage/thunderbird:latest
+    container_name: thunderbird
+    volumes:
+      - thunderbird:/config:rw
+    depends_on:
+      - mailserver
+    ports:
+      - "8000:5800"
+volumes:
+  maildata:
+  mailstate:
+  maillogs:
+  thunderbird:
