@@ -26,7 +26,7 @@ docker exec -it {Container_Name} bash OR docker exec -it {Container_Name} sh
 ``` bash
 docker exec -it {Container_Name} {Command} i.e. docker exec -it runny_runt ls
 ```
-- **Detach from detaches your terminal from a Docker container's process and returns you to the host machine's command prompt (Only works when -t and -i is used to launch the container)** 
+- **Detach from a Docker container's process or terminal and returns you to the host machine's command prompt (Only works when -t and -i is used to launch the container)** 
 ``` bash
 Ctrl+P+Q 
 ```
