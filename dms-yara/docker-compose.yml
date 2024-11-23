@@ -16,6 +16,9 @@ services:
       - maillogs:/var/log/mail
       - ./config/:/tmp/docker-mailserver/
       - /etc/localtime:/etc/localtime:ro
+      - type: bind
+        source: ./yara_rules.tar
+        target: /tmp/yara_rules.tar
         # Custom configuration
     environment:
       - ENABLE_RSPAMD=1
