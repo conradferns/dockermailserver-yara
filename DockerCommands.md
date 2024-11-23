@@ -30,8 +30,15 @@ docker exec -it {Container_Name} {Command} i.e. docker exec -it runny_runt ls
 ``` bash
 Ctrl+P+Q 
 ```
-
-  156  docker-compose up --remove-orphans
-docker-compose up and -d and down
-
-  255  docker container ls / volume network image
+- **Spin up/down docker containers from docker compose file** 
+``` bash
+docker-compose up -d
+docker-compose down
+```
+- **View existing containers/volumes/network/images** 
+``` bash
+docker container ls 
+docker volume ls 
+docker image ls
+docker network ls
+```
